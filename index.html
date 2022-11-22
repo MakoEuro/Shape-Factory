@@ -16,16 +16,23 @@
     <body>
         <main>
             <div class="wrapper">
-                <div class="container">
-                    <h2>Shape Factory</h2>
-                    <select name="shape" class="shape">
+                <h2>Shape Factory</h2>
+                <div class="layout container">     
+                    <select name="shape" class="shapeSel">
                         <option value="circle">Circle</option>
                         <option value="square">Square</option>
                     </select>
-                    <input type="button" class="create">Create
-                    <div class="container"></div>
-                    <h1 class="info"></h1>
+                    <select name="color" class="colorSel">
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                        <option value="orange">Orange</option>
+                        <option value="pink">Pink</option>
+                        <option value="purple">Purple</option>
+                    </select>
+                    <input type="button" class="create" value="Create">
+                    <div class="shapes container"></div>   
                 </div>
+                <h3 class="info">Click on a shape to show information!</h3>
             </div>
         </main>
     </body>
