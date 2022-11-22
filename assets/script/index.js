@@ -20,6 +20,7 @@ function sleep(duration) {
 const shape = select('.shapeSel');
 const color = select('.colorSel');
 const create = select('.create');
+const info = select('.info');
 
 // Class constructor ---------------
 
@@ -64,10 +65,12 @@ class Shape {
         }
 }
 
+const arr = [];
 let maxCount = 0;
 onEvent('click', create, function() {
     const newShape = new Shape(shape.value, color.value)
     newShape.createShape();
+    arr.push(newShape);
     maxCount++;
 
     if (maxCount === 24) {
@@ -76,4 +79,10 @@ onEvent('click', create, function() {
     }
 });
 
-onEvent('click', )
+newShape.addEventListener('click', function (e) {
+    const target = e.target;
+    if (target.matches('div')) {
+
+        info.innerText = `${newShape.getInfo()}`;    
+    }
+})
