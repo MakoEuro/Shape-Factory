@@ -27,38 +27,53 @@ class Shape {
     constructor(name, color) {
         this.name = name;
         this.color = color;
+
+        this.element = document.createElement('div');
+        document.querySelector('.shapes').appendChild(this.element);
+
+        this.element.style.width = "80px";
+        this.element.style.height = "80px";
     }
 
-    setShape() {
-        if (name === "square") {
-            
+    createShape() {
+        if (this.name === 'circle') {
+            this.element.style.borderRadius = '50%';
+        } else {
+            this.element.style.borderRadius = '5px';
         }
-    }
 
-    getInfo() {
-        return [this.name, this.color];
-    }
-
+        switch (this.color) {
+            case 'blue':
+                this.element.style.backgroundColor = "#09f";
+                break;
+            case 'green':
+                this.element.style.backgroundColor = '#9f0';
+                break;
+            case 'orange':
+                this.element.style.backgroundColor = '#f90';
+                break;
+            case 'pink':
+                this.element.style.backgroundColor = '#f09';
+                break;
+            case 'purple':
+                this.element.style.backgroundColor = '#90f';
+                break;
+            default:
+                this.element.style.backgroundColor = "white";
+            }
+        }
 }
 
+let maxCount = 0;
 onEvent('click', create, function() {
-    createShape();
+    const newShape = new Shape(shape.value, color.value)
+    newShape.createShape();
+    maxCount++;
+
+    if (maxCount === 24) {
+        create.disabled = true;
+        create.style.cursor = 'default';
+    }
 });
 
-function createShape() {
-    let element = document.createElement('div');
-    document.querySelector('.shapes').appendChild(element);
-    // Confirmation log message
-    console.log('Created element');
-
-    let shapeType = shape.value;
-    let colorType = color.value;
-
-    const newShape = new Shape(shapeType, colorType)
-    // Element size
-    element.style.width = "80px";
-    element.style.height = "80px";
-    element.style.borderRadius = "5px";
-
-    element.style.backgroundColor = "white";
-}
+onEvent('click', )
