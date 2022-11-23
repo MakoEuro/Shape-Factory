@@ -63,6 +63,10 @@ class Shape {
                 this.element.style.backgroundColor = "white";
             }
         }
+
+        getInfo() {
+            
+        }
 }
 
 const arr = [];
